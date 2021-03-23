@@ -8,10 +8,22 @@
 // Категория: Животные
 // Количество элементов: 4
 
+// Отримуємо доступ до елемента
 const itemListRef = document.querySelectorAll('.item');
 
-console.log(`В списку ${itemListRef.length} категорії.`)
+// Виводимо консоль
+console.log(`В списку ${itemListRef.length} категорії.`) //  В списку 3 категорії.
 
+// Перебираємо масив і на кожній ітерації виводимо textContent тега h2, кількість li у відповідному ul
 itemListRef.forEach(item => console.log(`
     Категорія: ${item.querySelector('h2').textContent}
     Кількість елементів: ${item.querySelectorAll('li').length}`))
+    
+    // Категорія: Тварини
+    // Кількість елементів: 4
+
+    // Категорія: Продукти
+    // Кількість елементів: 3
+
+    // Категорія: Технології
+    // Кількість елементів: 5
