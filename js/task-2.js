@@ -14,7 +14,7 @@ const linkByUlRef = document.querySelector('#ingredients')
 //console.log(linkForUlRef) // <ul id="ingredients"></ul>
 
 // Пишемо функцію 
-function createRef(arr) { // Отримує масив
+function createElements(arr) { // Отримує масив
     const itemsArr = []; // Створюємо пустий масив, на кожній ітерації в який будемо додавати елементи
     arr.forEach(item => { // Перебираємо масив
         const listItem = document.createElement('li'); //Створюємо порожній елемент
@@ -24,7 +24,7 @@ function createRef(arr) { // Отримує масив
     return linkByUlRef.prepend(...itemsArr); // Додаємо всі li розпиливши в кінець ul
 }
 
-createRef(ingredients); // Викликаємо функцію передавши масив
+createElements(ingredients); // Викликаємо функцію передавши масив
 
 
 
