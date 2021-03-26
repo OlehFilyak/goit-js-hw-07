@@ -1,21 +1,57 @@
-// Напиши скрипт, который выполнит следующие операции.
+// Завдання 1
+// В HTML є список категорій ul#categories.
 
-// Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item. Получится 'В списке 3 категории.'.
+// <ul id="categories">
+//   <li class="item">
+//     <h2>Тварини</h2>
 
-// Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка элемента (тега h2) и количество элементов в категории (всех вложенных в него элементов li).
+//     <ul>
+//       <li>Кіт</li>
+//       <li>Хом'як</li>
+//       <li>Кінь</li>
+//       <li>Папуга</li>
+//     </ul>
+//   </li>
+//   <li class="item">
+//     <h2>Продукти</h2>
 
-// Например для первой категории получится:
-// Категория: Животные
-// Количество элементов: 4
+//     <ul>
+//       <li>Хліб</li>
+//       <li>Петрушка</li>
+//       <li>Сир</li>
+//     </ul>
+//   </li>
+//   <li class="item">
+//     <h2>Технології</h2>
 
-// Отримуємо доступ до елемента
-const itemListRef = document.querySelectorAll('.item');
+//     <ul>
+//       <li>HTML</li>
+//       <li>CSS</li>
+//       <li>JavaScript</li>
+//       <li>React</li>
+//       <li>Node</li>
+//     </ul>
+//   </li>
+// </ul>
+// Напиши скрипт, який виконає наступні операції.
 
-// Виводимо консоль
-console.log(`В списку ${itemListRef.length} категорії.`) //  В списку 3 категорії.
+// Порахує і виведе в консоль кількість категорій в ul#categories, тобто елементів li.item. 
+// Вийде 'У списку 3 категорії.'.
+
+// Для кожного елемента li.item в списку ul#categories, знайде і виведе в консоль текст заголовка елемента (тега h2) 
+// і кількість елементів в категорії(всіх вкладених в нього елементів li).
+
+// Наприклад, для першої категорії вийде:
+// Категорія: Тварини
+// Кількість елементів: 4
+
+// Answer 1
+const itemsListRef = document.querySelectorAll('.item'); // Отримуємо доступ до елемента
+
+console.log(`В списку ${itemsListRef.length} категорії.`) // Виводимо консоль 'В списку 3 категорії'.
 
 // Перебираємо масив і на кожній ітерації виводимо textContent тега h2, кількість li у відповідному ul
-itemListRef.forEach(item => console.log(`
+itemsListRef.forEach(item => console.log(`
     Категорія: ${item.querySelector('h2').textContent}
     Кількість елементів: ${item.querySelectorAll('li').length}`))
     
@@ -27,3 +63,13 @@ itemListRef.forEach(item => console.log(`
 
     // Категорія: Технології
     // Кількість елементів: 5
+
+// Answer 2
+const linkForLiItemsRef = document.querySelectorAll('.item')
+
+console.log(`У списку ${linkForLiItemsRef.length} категорій`)
+
+linkForLiItemsRef.forEach(item => {
+    console.log(`Категорія: ${item.firstElementChild.textContent},
+    Кількість елементів: ${item.querySelectorAll('li').length}`)
+})
