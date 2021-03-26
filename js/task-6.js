@@ -21,3 +21,12 @@
 // #validation-input.invalid {
 //   border-color: #f44336;
 // }
+
+const inputRef = document.querySelector('#validation-input');
+
+inputFocus.addEventListener('blur', validationInputBlur)
+
+function validationInputBlur() {
+    // console.log('Фокус втрачено')
+inputRef.value.length >= 6 ? inputRef.classList.add('valid'): inputRef.classList.add('invalid')
+} 

@@ -12,10 +12,8 @@ const refs = { // Отримуємо посилання
 }
 
 
-const changeNameGuest = () => { // Через те, що стрілка, то пишемо її перед слухачем події (не може бути виклик перед ініціалізацією)
-
- refs.nameInput.value === '' ? refs.nameOutput.textContent = 'Незнайомець' : refs.nameOutput.textContent = refs.nameInput.value; // Порівнюємо із пестою строкою
-}
+const changeNameGuest = () => // Через те, що стрілка, то пишемо її перед слухачем події (не може бути виклик перед ініціалізацією
+    refs.nameInput.value === '' ? refs.nameOutput.textContent = 'Незнайомець' : refs.nameOutput.textContent = refs.nameInput.value; // Порівнюємо із пестою строкою
 
 refs.nameInput.addEventListener('input', changeNameGuest) // реєструємо слухача події, викликаємо callback
 
