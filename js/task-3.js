@@ -1,9 +1,8 @@
-// Напиши скрипт для создания галлереи изображений по массиву данных.
+// Напиши скрипт для створення галереї зображень по масиву даних.
 
-// В HTML есть список ul#gallery.
+// В HTML є список ul#gallery.
 
 // <ul id="gallery"></ul>
-
 // Використовуй масив об'єктів images для створення тегів img вкладених в li. Для створення розмітки використовуй шаблонні рядки і insertAdjacentHTML().
 
 // Всі елементи галереї повинні додаватися в DOM за одну операцію вставки.
@@ -26,22 +25,13 @@ const images = [
   },
 ];
 
-const galleryRef = document.querySelector('#gallery');
-galleryRef.classList.add('gallery-list')
+// const galleryRef = document.querySelector('#gallery');
+// galleryRef.classList.add('gallery-list')               
 
-function createElements(arr) {
-  const imagesInGallery = arr.map(item => {
-    const imgInTegLi = document.createElement('li');
-    imgInTegLi.insertAdjacentHTML(
-      'beforeend',
-      `<img src="${item.url}" alt="${item.alt}">`,
-    );
-    imgInTegLi.setAttribute('class', 'gallery-list__item');
+let markup = ``; //створюємо пусту строку
+images.forEach( // перебираємо масив на кожній ітерації, записуючи в строку всі потрібні теги
+  ({url, alt})=> (markup += `<li><img src="${url}" alt="${alt}" class ="gallery-list__item" /></li>`), //деструктуризація
+);
+document.querySelector('#gallery').insertAdjacentHTML('beforeend', markup); //insertAdjacentHTML розпарсив все
 
-    return imgInTegLi;
-  });
-
-  return gallery.append(...imagesInGallery);
-}
-
-console.log(createElements(images));
+// console.log(document.querySelector('#gallery')) Перевіряємо, щоб все працювало.
