@@ -1,6 +1,20 @@
-// Напиши скрипт, який для кожного елемента масиву ingredients створить окремий li, після чого вставить всі li за одну операцію в список ul.ingredients.
-// Для створення DOM - вузлів використовуй document.createElement().
+// В HTML є пустий список ul#ingredients.
 
+// <ul id="ingredients"></ul>
+// В JS є масив рядків.
+
+// const ingredients = [
+//   'Картопля',
+//   'Гриби',
+//   'Часник',
+//   'Помідори',
+//   'Зелень',
+//   'Приправи',
+// ];
+// Напиши скрипт, який для кожного елемента масиву ingredients створить окремий li, 
+// після чого вставить всі li за одну операцію в список ul.ingredients.Для створення DOM - вузлів використовуй document.createElement().
+
+// Answer 1
 const ingredients = [
   'Картопля',
   'Гриби',
@@ -9,25 +23,19 @@ const ingredients = [
   'Зелень',
   'Приправи',
 ];
-// Отримуємо доступ до ul
-const linkByUlRef = document.querySelector('#ingredients')
+const linkByUlRef = document.querySelector('#ingredients') // отримуємо доступ до ul
 //console.log(linkForUlRef) // <ul id="ingredients"></ul>
 
-// Пишемо функцію 
-function createElements(arr) { // Отримує масив
-    const itemsArr = []; // Створюємо пустий масив, на кожній ітерації в який будемо додавати елементи
-    arr.forEach(item => { // Перебираємо масив
-        const listItem = document.createElement('li'); //Створюємо порожній елемент
-        listItem.textContent = item; //Записуємо текстовий контент в lі
-        itemsArr.push(listItem); // Додаємо готовий li в масив
-    });
-    return linkByUlRef.prepend(...itemsArr); // Додаємо всі li розпиливши в кінець ul
+function createLi (arr) { // cтворюємо функцію
+  const liArray = [];     // cтворюємо пустий масив
+  arr.forEach(el => {     // перебираємо наш масив
+  const LiRef = document.createElement('li') // на кожній ітерації робимо li
+  LiRef.textContent = `${ el }`              // записуємо у li значення el
+  liArray.push(LiRef)                        // пушимо в масив
+  });
+  return linkByUlRef.prepend(...liArray)     // прив'язуємо на початок ul
 }
 
-createElements(ingredients); // Викликаємо функцію передавши масив
+createLi (ingredients) // Викликаємо функцію передаючи масив
+// console.log(linkByUlRef)
 
-
-
-// Перевіряємо результат в консолі
-// let ourLiRef = document.querySelectorAll('li')
-// console.log(ourLiRef)
