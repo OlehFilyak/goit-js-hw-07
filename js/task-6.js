@@ -26,7 +26,7 @@ const inputRef = document.querySelector("#validation-input");
 
 inputRef.addEventListener("blur", validationInputBlur);
 
-function validationInputBlur() {
+function validationInputBlur(event) {
   // Фокус втрачено
 
   if (inputRef.value.length >= 6) {
