@@ -1,8 +1,7 @@
 :root {
-    --main-font: ;
-    --main-color: #35c086;
-    --link-color: #158a8c;
-    --change-link-color: #35c086;
+    --main-color: #87CEFA;
+    --link-color: #87CEEB;
+    --change-link-color: #00BFFF;
     font-size: 18px;
     line-height: 1.5;
 }
@@ -17,6 +16,7 @@ body {
 .link {
     color: var(--link-color);
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .link:hover,

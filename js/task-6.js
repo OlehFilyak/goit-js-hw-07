@@ -22,11 +22,16 @@
 //   border-color: #f44336;
 // }
 
-const inputRef = document.querySelector('#validation-input');
+const inputRef = document.querySelector("#validation-input");
 
-inputFocus.addEventListener('blur', validationInputBlur)
+inputRef.addEventListener("blur", validationInputBlur);
 
 function validationInputBlur() {
-    // console.log('Фокус втрачено')
-inputRef.value.length >= 6 ? inputRef.classList.add('valid'): inputRef.classList.add('invalid')
-} 
+  // Фокус втрачено
+
+  if (inputRef.value.length >= 6) {
+    inputRef.classList.add("valid");
+  } else {
+    inputRef.classList.add("invalid");
+  }
+}
