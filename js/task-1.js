@@ -35,41 +35,44 @@
 // </ul>
 // Напиши скрипт, який виконає наступні операції.
 
-// Порахує і виведе в консоль кількість категорій в ul#categories, тобто елементів li.item. 
+// Порахує і виведе в консоль кількість категорій в ul#categories,
+// тобто елементів li.item.
 // Вийде 'У списку 3 категорії.'.
 
-// Для кожного елемента li.item в списку ul#categories, знайде і виведе в консоль текст заголовка елемента (тега h2) 
+// Для кожного елемента li.item в списку ul#categories, знайде і виведе
+// в консоль текст заголовка елемента(тега h2)
 // і кількість елементів в категорії(всіх вкладених в нього елементів li).
 
 // Наприклад, для першої категорії вийде:
 // Категорія: Тварини
 // Кількість елементів: 4
 
-// Answer 1
-const itemsListRef = document.querySelectorAll('.item'); // Отримуємо доступ до елемента
+// Answer
 
-console.log(`В списку ${itemsListRef.length} категорії.`) // Виводимо консоль 'В списку 3 категорії'.
+const itemsRef = document.querySelectorAll(".item");
 
-// Перебираємо масив і на кожній ітерації виводимо textContent тега h2, кількість li у відповідному ul
-itemsListRef.forEach(item => console.log(`
-    Категорія: ${item.querySelector('h2').textContent}
-    Кількість елементів: ${item.querySelectorAll('li').length}`))
-    
-    // Категорія: Тварини
-    // Кількість елементів: 4
+function calcItemsInCategories() {
+  let calcItemsInCategories = null;
+  itemsRef.forEach((item) => (calcItemsInCategories += 1));
 
-    // Категорія: Продукти
-    // Кількість елементів: 3
+  console.log(`У списку ${calcItemsInCategories} категорії.`);
+}
 
-    // Категорія: Технології
-    // Кількість елементів: 5
+calcItemsInCategories(); //У списку 3 категорії.
 
-// Answer 2
-const linkForLiItemsRef = document.querySelectorAll('.item')
+function calcNumberOfItemsInCategory() {
+  itemsRef.forEach((item) =>
+    console.log(`Категорія: ${item.firstElementChild.textContent}
+    Кількість елементів: ${item.lastElementChild.children.length}`)
+  );
+}
 
-console.log(`У списку ${linkForLiItemsRef.length} категорій`)
+calcNumberOfItemsInCategory();
+// Категорія: Тварини
+// Кількість елементів: 4
 
-linkForLiItemsRef.forEach(item => {
-    console.log(`Категорія: ${item.firstElementChild.textContent},
-    Кількість елементів: ${item.querySelectorAll('li').length}`)
-})
+// Категорія: Продукти
+// Кількість елементів: 3
+
+// Категорія: Технології
+// Кількість елементів: 5

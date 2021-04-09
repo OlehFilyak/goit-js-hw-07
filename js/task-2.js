@@ -11,31 +11,34 @@
 //   'Зелень',
 //   'Приправи',
 // ];
-// Напиши скрипт, який для кожного елемента масиву ingredients створить окремий li, 
-// після чого вставить всі li за одну операцію в список ul.ingredients.Для створення DOM - вузлів використовуй document.createElement().
+// Напиши скрипт, який для кожного елемента масиву ingredients створить окремий li,
+// після чого вставить всі li за одну операцію в список ul.ingredients.
+// Для створення DOM - вузлів використовуй document.createElement().
 
-// Answer 1
+// Answer
 const ingredients = [
-  'Картопля',
-  'Гриби',
-  'Часник',
-  'Помідори',
-  'Зелень',
-  'Приправи',
+  "Картопля",
+  "Гриби",
+  "Часник",
+  "Помідори",
+  "Зелень",
+  "Приправи",
 ];
-const linkByUlRef = document.querySelector('#ingredients') // отримуємо доступ до ul
+
+const linkByUlRef = document.querySelector("#ingredients"); // отримуємо доступ до ul
 //console.log(linkForUlRef) // <ul id="ingredients"></ul>
 
-function createLi (arr) { // cтворюємо функцію
-  const liArray = [];     // cтворюємо пустий масив
-  arr.forEach(el => {     // перебираємо наш масив
-  const LiRef = document.createElement('li') // на кожній ітерації робимо li
-  LiRef.textContent = `${ el }`              // записуємо у li значення el
-  liArray.push(LiRef)                        // пушимо в масив
+function createLi(arr) {
+  // cтворюємо функцію
+  const liArray = []; // cтворюємо пустий масив
+  arr.forEach((el) => {
+    // перебираємо наш масив
+    let LiRef = document.createElement("li"); // на кожній ітерації робимо li
+    LiRef.textContent = `${el}`; // записуємо у li значення el
+    liArray.push(LiRef); // пушимо в масив
   });
-  return linkByUlRef.prepend(...liArray)     // прив'язуємо на початок ul
+  return linkByUlRef.prepend(...liArray); // прив'язуємо на початок ul
 }
 
-createLi (ingredients) // Викликаємо функцію передаючи масив
-// console.log(linkByUlRef)
-
+createLi(ingredients); // Викликаємо функцію передаючи масив
+// console.log(linkByUlRef);
